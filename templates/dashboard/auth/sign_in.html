@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- auth-register.html  21 Nov 2019 04:05:01 GMT -->
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>Sign In</title>
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="{% static 'dashboard/css/app.min.css' %}">
+  <link rel="stylesheet" href="{% static 'dashboard/bundles/jquery-selectric/selectric.css' %}">
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="{% static 'dashboard/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'dashboard/css/components.css' %}">
+  <!-- Custom style CSS -->
+  <link rel="stylesheet" href="{% static 'dashboard/css/custom.css' %}">
+  <link rel='shortcut icon' type='image/x-icon' href="{% static 'dashboard/img/favicon.ico' %}" />
+</head>
+
+<body>
+  <div class="loader"></div>
+  <div id="app">
+    <section class="section">
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-12 col-sm-10 offset-sm-1 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-6 offset-xl-3">
+            <div class="card card-primary">
+              <div class="card-header">
+                <h4>Login</h4>
+              </div>
+              <div class="card-body">
+                <form method="post">
+                  {% csrf_token %}
+                  <div class="row">
+                    <div class="form-group col-12">
+                      <label for="frist_name">User Name</label>
+                      <input id="frist_name" type="text" class="form-control" name="username" autofocus required>
+                    </div>                  
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-12">
+                      <label for="password" class="d-block">Password</label>
+                      <input id="password" type="password" class="form-control pwstrength" data-indicator="pwindicator"
+                        name="password" required>
+                      <div id="pwindicator" class="pwindicator">
+                        <div class="bar"></div>
+                        <div class="label"></div>
+                      </div>
+                    </div>                    
+                  </div>
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">
+                      Login
+                    </button>
+                  </div>
+                </form>
+              </div>
+              <div class="mb-4 text-muted text-center">
+                Don't have an account? <a href="{% url 'auth:sign-up' %}">Create One</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- General JS Scripts -->
+  <script src="{% static 'dashboard/js/app.min.js' %}"></script>
+  <!-- JS Libraies -->
+  <script src="{% static 'dashboard/bundles/jquery-pwstrength/jquery.pwstrength.min.js' %}"></script>
+  <script src="{% static 'dashboard/bundles/jquery-selectric/jquery.selectric.min.js' %}"></script>
+  <!-- Page Specific JS File -->
+  <script src="{% static 'dashboard/js/page/auth-register.js' %}"></script>
+  <!-- Template JS File -->
+  <script src="{% static 'dashboard/js/scripts.js' %}"></script>
+  <!-- Custom JS File -->
+  <script src="{% static 'dashboard/js/custom.js' %}"></script>
+</body>
+</html>
