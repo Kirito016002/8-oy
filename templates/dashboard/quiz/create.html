@@ -19,7 +19,7 @@ Quiz Create
         <h4>Quiz Options</h4>
       </div>
       <br>
-      <form action="{% url 'dashboard:quiz-create' user.id %}" method="post">
+      <form action="{% url 'dashboard:quiz-create' %}" method="post">
         {% csrf_token %}
         <div class="card-body">
           <div class="form-group">

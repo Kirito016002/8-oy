@@ -10,6 +10,9 @@ class Quiz(models.Model):
 class Question(models.Model):
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
     title = models.TextField()
+    
+    def __str__(self):
+        return self.title
 
     @property
     def correct_answer(self, *args, **kwargs):
@@ -29,7 +32,7 @@ class Option(models.Model):
         option = Option.objects.filter(question=self.question, is_correct=True)
         if option and self.is_correct:
             raise ValueError('Ikkita to`g`ri javob kiritish mumkin emas')
-        elif not self.is_correct :
+        elif not self.is_correct and not option:
             raise ValueError('Birinchi to`g`ri javob kiriting ')
         super(Option, self).save(*args, **kwargs)
 
