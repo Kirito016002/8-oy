@@ -1,4 +1,4 @@
-{% load static %}
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,16 +7,14 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>{% block title %}{% endblock %}</title>
+  <title>Otika - Admin Dashboard Template</title>
   <!-- General CSS Files -->
-  <link rel="stylesheet" href="{% static 'dashboard/css/app.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/app.min.css' %}">
   <!-- Template CSS -->
-  <link rel="stylesheet" href="{% static 'dashboard/css/style.css' %}">
-  <link rel="stylesheet" href="{% static 'dashboard/css/components.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/components.css' %}">
   <!-- Custom style CSS -->
-  <link rel="stylesheet" href="{% static 'dashboard/css/custom.css' %}">
-  <link rel='shortcut icon' type='image/x-icon' href="{% static 'dashboard/img/favicon.ico' %}" />
-  {% block css %}{% endblock %}
+  <link rel="stylesheet" href="{% static 'assets/css/custom.css' %}">
 </head>
 
 <body>
@@ -58,27 +56,27 @@
               </div>
               <div class="dropdown-list-content dropdown-list-message">
                 <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar
-											text-white"> <img alt="image" src="{% static 'dashboard/img/users/user-1.png' %}" class="rounded-circle">
+											text-white"> <img alt="image" src="{% static 'assets/img/users/user-1.png'%}" class="rounded-circle">
                   </span> <span class="dropdown-item-desc"> <span class="message-user">John
                       Deo</span>
                     <span class="time messege-text">Please check your mail !!</span>
                     <span class="time">2 Min Ago</span>
                   </span>
                 </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
-                    <img alt="image" src="{% static 'dashboard/img/users/user-2.png' %}" class="rounded-circle">
+                    <img alt="image" src="{% static 'assets/img/users/user-2.png'%}" class="rounded-circle">
                   </span> <span class="dropdown-item-desc"> <span class="message-user">Sarah
                       Smith</span> <span class="time messege-text">Request for leave
                       application</span>
                     <span class="time">5 Min Ago</span>
                   </span>
                 </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
-                    <img alt="image" src="{% static 'dashboard/img/users/user-5.png' %}" class="rounded-circle">
+                    <img alt="image" src="{% static 'assets/img/users/user-5.png'%}" class="rounded-circle">
                   </span> <span class="dropdown-item-desc"> <span class="message-user">Jacob
                       Ryan</span> <span class="time messege-text">Your payment invoice is
                       generated.</span> <span class="time">12 Min Ago</span>
                   </span>
                 </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
-                    <img alt="image" src="{% static 'dashboard/img/users/user-4.png' %}" class="rounded-circle">
+                    <img alt="image" src="{% static 'assets/img/users/user-4.png'%}" class="rounded-circle">
                   </span> <span class="dropdown-item-desc"> <span class="message-user">Lina
                       Smith</span> <span class="time messege-text">hii John, I have upload
                       doc
@@ -86,7 +84,7 @@
                       Min Ago</span>
                   </span>
                 </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
-                    <img alt="image" src="{% static 'dashboard/img/users/user-3.png' %}" class="rounded-circle">
+                    <img alt="image" src="{% static 'assets/img/users/user-3.png'%}" class="rounded-circle">
                   </span> <span class="dropdown-item-desc"> <span class="message-user">Jalpa
                       Joshi</span> <span class="time messege-text">Please do as specify.
                       Let me
@@ -94,7 +92,7 @@
                       Days Ago</span>
                   </span>
                 </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
-                    <img alt="image" src="{% static 'dashboard/img/users/user-2.png' %}" class="rounded-circle">
+                    <img alt="image" src="{% static 'assets/img/users/user-2.png'%}" class="rounded-circle">
                   </span> <span class="dropdown-item-desc"> <span class="message-user">Sarah
                       Smith</span> <span class="time messege-text">Client Requirements</span>
                     <span class="time">2 Days Ago</span>
@@ -156,10 +154,10 @@
             </div>
           </li>
           <li class="dropdown"><a href="#" data-toggle="dropdown"
-              class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="{% static 'dashboard/img/user.png' %}"
+              class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="{% static 'assets/img/user.png'%}"
                 class="user-img-radious-style"> <span class="d-sm-none d-lg-inline-block"></span></a>
             <div class="dropdown-menu dropdown-menu-right pullDown">
-              <div class="dropdown-title">Hello {{user.username}}</div>
+              <div class="dropdown-title">Hello, {{user.username}}</div>
               <a href="profile.html" class="dropdown-item has-icon"> <i class="far
 										fa-user"></i> Profile
               </a> <a href="timeline.html" class="dropdown-item has-icon"> <i class="fas fa-bolt"></i>
@@ -168,7 +166,7 @@
                 Settings
               </a>
               <div class="dropdown-divider"></div>
-              <a href="{% url 'auth:sign-out' %}" class="dropdown-item has-icon text-danger"> <i class="fas fa-sign-out-alt"></i>
+              <a href="auth-login.html" class="dropdown-item has-icon text-danger"> <i class="fas fa-sign-out-alt"></i>
                 Logout
               </a>
             </div>
@@ -178,51 +176,45 @@
       <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="{% url 'dashboard:index' %}"> <img alt="image" src="{% static 'dashboard/img/logo.png' %}" class="header-logo" /> <span
+            <a href="index.html"> <img alt="image" src="{% static 'assets/img/logo.png'%}" class="header-logo" /> <span
                 class="logo-name">Otika</span>
             </a>
           </div>
           <ul class="sidebar-menu">
-            <li class="menu-header">Saidbar</li>
+            <li class="menu-header">Main</li>
+            <li class="dropdown active">
+              <a href="{%url 'dash:main'%}" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
+            </li>
             <li class="dropdown">
               <a href="#" class="menu-toggle nav-link has-dropdown"><i
-                  data-feather="briefcase"></i><span>Quiz</span></a>
+                  data-feather="briefcase"></i><span>Quizes</span></a>
               <ul class="dropdown-menu">
-                <li><a class="nav-link" href="{% url 'dashboard:quiz-list' %}">List</a></li>
+                <li><a class="nav-link" href="{% url 'dash:quiz_create' %}">Create Quizz</a></li>
               </ul>
             </li>
           </ul>
         </aside>
       </div>
-
-      {% block content %}
-
-      {% endblock %}
-
-      <footer class="main-footer">
-        <div class="footer-left">
-          <a href="templateshub.net">Templateshub</a></a>
+      <div class="main-content">
+      {%block content%}
+      
+      {%endblock%}
         </div>
-        <div class="footer-right">
-        </div>
-      </footer>
     </div>
-  </div>
-  <!-- General JS Scripts -->
-  <script src="{% static 'dashboard/js/app.min.js' %}"></script>
-  <!-- JS Libraies -->
-  <script src="{% static 'dashboard/bundles/apexcharts/apexcharts.min.js' %}"></script>
-  <!-- Page Specific JS File -->
-  <script src="{% static 'dashboard/js/page/index.js' %}"></script>
-  <!-- Template JS File -->
-  <script src="{% static 'dashboard/js/scripts.js' %}"></script>
-  <!-- Custom JS File -->
-  <script src="{% static 'dashboard/js/custom.js' %}"></script>
-  {% block js %}{% endblock %}
+</div>
+<script src="https://kit.fontawesome.com/92b00ac3f6.js" crossorigin="anonymous"></script>
+<!-- General JS Scripts -->
+<script src="{% static 'assets/js/app.min.js'%}"></script>
+<!-- JS Libraies -->
+<script src="{% static 'assets/bundles/apexcharts/apexcharts.min.js'%}"></script>
+<!-- Page Specific JS File -->
+<script src="{% static 'assets/js/page/index.js'%}"></script>
+<!-- Template JS File -->
+<script src="{% static 'assets/js/scripts.js'%}"></script>
+<!-- Custom JS File -->
+<script src="{% static 'assets/js/custom.js'%}"></script>
 </body>
 
 
 <!-- index.html  21 Nov 2019 03:47:04 GMT -->
 </html>
-
-

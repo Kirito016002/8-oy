@@ -1,13 +1,19 @@
 from django.urls import path
 from . import views
 
-app_name = 'dashboard'
+app_name = 'dash'
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('quiz-list', views.quiz_list, name='quiz-list'),
-    path('quiz-create', views.quiz_create, name='quiz-create'),
-    # question
-    path('question-list/<int:id>', views.question_list, name='question-list'),
-    path('question-create', views.question_create, name='question-create'),
+    path('', views.main, name = 'main'),
+    #quiz create
+    path('create-quizz', views.create_quiz, name = 'quiz_create'),
+    path('create-question/<int:id>', views.create_question , name ='quest_create' ),
+    #quiz & questions detials
+    path('questions/<int:id>', views.questions_list, name = 'questions'),
+    path('question-detail/<int:id>', views.quest_detail, name = 'quest_detail'),
+    path('quiz-delete/<int:id>', views.quiz_delete , name ='quiz_delete' ),
+    path('get-results/<int:id>', views.get_results , name ='get_results' ),
+    path('result-detail/<int:id>', views.result_detail , name ='result_detail' ),
+    
+    path('generate_excel/', views.generate_excel, name='generate_excel'),
 ]
