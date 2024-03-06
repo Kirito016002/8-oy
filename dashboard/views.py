@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from django.db.models import Count
 
 from openpyxl import Workbook
+import clipboard
 
 from main import models
 from . import funcs
@@ -12,25 +13,31 @@ from . import funcs
 
 @login_required
 def main(request):
-    quizes = models.Quiz.objects.filter(author = request.user)
-    data = [
-        {'label': 'Category 1', 'value': 20},
-        {'label': 'Category 2', 'value': 30},
-        {'label': 'Category 3', 'value': 50},
-    ]
-    context = {
-        "quizes" : quizes,
-        'chart_data': data
-    }
-    return render(request, 'dashboard/main.html', context)
+    try:
+        quizes = models.Quiz.objects.filter(author = request.user)
+        data = [
+            {'label': 'Category 1', 'value': 20},
+            {'label': 'Category 2', 'value': 30},
+            {'label': 'Category 3', 'value': 50},
+        ]
+        context = {
+            "quizes" : quizes,
+            'chart_data': data
+        }
+        return render(request, 'dashboard/main.html', context)
+    except:
+        return render(request, 'dashboard/main.html')
 
 @login_required
 def create_quiz(request):
     if request.method == 'POST':
         title = request.POST['title']
+        time = request.POST['time']
+        print(time)
         quiz = models.Quiz.objects.create(
             title = title,
-            author = request.user
+            author = request.user,
+            end_time = time
         )
         return redirect('dash:quest_create', quiz.id)
     return render(request, 'dashboard/quiz/create-quiz.html')
@@ -63,10 +70,19 @@ def create_question(request, id):
     return render (request, 'dashboard/quiz/create-question.html' )
 
 @login_required
+def start_or_breake(request, id):
+    quiz = models.Quiz.objects.get(id = id)
+    quiz.is_active = not quiz.is_active
+    quiz.save()
+    return redirect('dash:main')
+
+@login_required
 def questions_list(request, id):
     quests = models.Question.objects.filter(quiz_id = id)
+    quiz = models.Quiz.objects.get(id = id)
     context = {
-        'questions': quests
+        'questions': quests,
+        'quiz': quiz,
     }
     return render (request, 'dashboard/details/questions.html', context)
 

@@ -20,7 +20,7 @@ from main import models
 class OptionSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Option
-        fields = ['name', 'is_correct']
+        fields = ['name']
 
 class QuestionSerializer(serializers.ModelSerializer):
     options = OptionSerializer(many=True, read_only=True)

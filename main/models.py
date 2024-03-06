@@ -8,6 +8,8 @@ class Quiz(models.Model):
     title = models.CharField(max_length=255)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     code = models.CharField(max_length=255, blank=True, unique=True)
+    is_active = models.BooleanField(default=True)
+    end_time = models.DateTimeField(null=True)
 
     @property
     def all_questions(self):
@@ -65,6 +67,7 @@ class QuizTaker(models.Model):
     phone = models.CharField(max_length=255)
     email = models.EmailField(blank=True, null=True)
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
+    
 
 
 class Answer(models.Model):
